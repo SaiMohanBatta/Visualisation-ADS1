@@ -57,5 +57,5 @@ df_xy["sin"] = np.sin(df_xy["x"])
 df_xy["cos"] = np.cos(df_xy["x"])
 print(df_xy)
 
-# calling lineplot with a list of the columns to be plotted.
+# calling lineplot with a list of the columns to be plotted changing something to code.
 lineplot(df_xy, ["sin", "cos"])
