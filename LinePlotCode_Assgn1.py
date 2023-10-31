@@ -1,24 +1,27 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
+import matplotlib.pyplot as plt
 
+# Function to generate a line plot with multiple lines
+def Create_LinePlot(PathToFile):
+    # Load the dataset from the CSV file
+    data = pd.read_csv(PathToFile)
 
-# Function to read the file
-def ReadFile(file_path)
-    Dataset = pd.read_csv(file_path)
+    # Display the loaded data
+    print(data)
 
-# Function to create Line plot with multiple lines
-# For desired years based on the column numbers
-def Create_Line_Plot(CntryCol,YearsCol1,YearsCol2)
-    Country_Codes = data['CntryCol']
-    Years = data.columns[YearsCol1:YearsCol2] 
-    plt.figure()
-    for inx in range(len(Country_Codes)):
-        Country_data = data.loc[inx, Country_Codes[inx]]
-        plt.plot(Years, country_data, label=country_codes[inx])
-    # Adding title to the graph and labels to axis
+    # Extracting the data for plotting
+    country_codes = data['Country Code'] # Fetched the country codes from CSV
+    years = data.columns[3:]  # the columns of years starts for 3 onwards
+
+    # Creating a line plot with multiple lines based on Number of countries 
+    plt.figure(figsize=(10, 6))
+    for idx in range(len(country_codes)):
+        plt.plot(years, data.iloc[idx, 3:],label=country_codes[idx])
+
+    # Adding title and labels
     plt.title('Infant Mortality Rate in Major Europe Countries from 1970 to 2020')
-    plt.xlabel('Years')
+    plt.xlabel('Years') 
     plt.ylabel('Infant Mortality rate (per 1,000 live births)')
 
     # Adding legend
@@ -27,10 +30,6 @@ def Create_Line_Plot(CntryCol,YearsCol1,YearsCol2)
     # Display the plot
     plt.show()
 
-# Calling functions to read and create line plot
-file_path = r'C:\Users\Avinash Reddy\Videos\Harsha Assignment\reduceddata.csv'
-ReadFile(file_path)
-Create_Line_Plot(Country Code,3,)
-
-
-
+# Replace 'path_to_your_csv_file.csv' with the actual path to your CSV file
+PathToFile = r'C:\Users\Avinash Reddy\Videos\Harsha Assignment\reduceddata.csv'
+Create_LinePlot(PathToFile)
