@@ -12,12 +12,12 @@ def Create_LinePlot(PathToFile):
 
     # Extracting the data for plotting
     country_codes = data['Country Code'] # Fetched the country codes from CSV
-    years = data.columns[3:]  # the columns of years starts from 3rd column.
+    years = data.columns[2:]  # the columns of years starts from 3rd column.
 
     # Creating a line plot with multiple lines based on Number of countries 
     plt.figure(figsize=(10, 6))
     for idx in range(len(country_codes)):
-        plt.plot(years, data.iloc[idx, 3:],label=country_codes[idx])
+        plt.plot(years, data.iloc[idx, 2:],label=country_codes[idx])
 
     # Adding plot title and Axis labels
     plt.title('Infant Mortality Rate in Major Europe Countries from 1970 to 2020')
@@ -31,5 +31,5 @@ def Create_LinePlot(PathToFile):
     plt.show()
 
 # Calling function to generate the Line Plot
-PathToFile = r'C:\Users\Avinash Reddy\Videos\Harsha Assignment\reduceddata.csv'
+PathToFile = r'C:\Users\Avinash Reddy\Videos\ADS1Assgn\reduceddata.csv'
 Create_LinePlot(PathToFile)
