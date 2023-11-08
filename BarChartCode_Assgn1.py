@@ -1,22 +1,24 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
+
 # Function to generate a bar chart
-def CreateBarChart(PathToFile):
+# by reading the CSV file
+def create_bar_chart(path_to_file):
     # Load the dataset from the CSV file
-    data = pd.read_csv(PathToFile)
+    data = pd.read_csv(path_to_file)
 
-    # Extract the country codes and data for plotting
+    # Get the data of country codes and years
     country_codes = data['World']
-    years = list(data.columns[1:10])  # the data for years 1970 to 2020 is in columns 3 to 7
+    # The data for the years 1980 to 2020 is in columns 2 to 10
+    years = list(data.columns[1:10])  
 
-    # Plotting the bar chart
+    # Plotting of the bar chart
     plt.figure(figsize=(12, 8))
     for i in range(len(country_codes)):
-        plt.bar([x + i  for x in range(len(years))], data.iloc[i, 1:10])
+        plt.bar([x + i for x in range(len(years))], data.iloc[i, 1:10])
 
-    # Adding title and labels
+    # Adding title and labels to the bar chart
     plt.title('Access to electricity (% of population) - World')
     plt.xlabel('Years')
     plt.ylabel('% of Population')
@@ -24,12 +26,10 @@ def CreateBarChart(PathToFile):
     # Adding x-axis labels for years
     plt.xticks([i for i in range(len(years))], years)
 
-    # Adding legend
-    plt.legend()
-
     # Display the plot
     plt.show()
 
-# Replace 'path_to_your_csv_file.csv' with the actual path to your CSV file
-PathToFile = r'C:\Users\Avinash Reddy\Videos\ADS1Assgn\AccesstoElec.csv'
-CreateBarChart(PathToFile)
+
+# Replace 'path_to_file.csv' with the actual path to your CSV file
+path_to_file = r'C:\Users\batta\OneDrive\Desktop\ads1\assignments1\AccesstoElec.csv'
+create_bar_chart(path_to_file)
