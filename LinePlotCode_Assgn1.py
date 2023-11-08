@@ -1,35 +1,37 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 # Function to generate a line plot with multiple lines
-def Create_LinePlot(PathToFile):
+# By reading the data from a CSV file
+def create_line_plot(path_to_file):
     # Load the dataset from the CSV file
-    data = pd.read_csv(PathToFile)
+    data = pd.read_csv(path_to_file)
 
-    # Display the loaded data
-    print(data)
+    # Getting the data of country codes and years
+    # Fetched the country codes from the CSV
+    country_codes = data['Country Code']
+    # The columns of years start from the 3rd column.
+    years = data.columns[2:]
 
-    # Extracting the data for plotting
-    country_codes = data['Country Code'] # Fetched the country codes from CSV
-    years = data.columns[2:]  # the columns of years starts from 3rd column.
-
-    # Creating a line plot with multiple lines based on Number of countries 
+    # Create a line plot with multiple lines based on the number of countries
     plt.figure(figsize=(10, 6))
     for idx in range(len(country_codes)):
-        plt.plot(years, data.iloc[idx, 2:],label=country_codes[idx])
+	# The data of years starts from column 3.
+        plt.plot(years, data.iloc[idx, 2:], label=country_codes[idx])  
 
-    # Adding plot title and Axis labels
-    plt.title('Infant Mortality Rate in Major Europe Countries from 1970 to 2020')
-    plt.xlabel('Years') 
+    # Adding plot title and axis labels to append to the graphs.
+    plt.title('Infant Mortality Rate in Major EU Countries from 1970 to 2020')
+    plt.xlabel('Years')
     plt.ylabel('Infant Mortality rate (per 1,000 live births)')
 
-    # Adding legend
+    # Adding legend to the map countrywide
     plt.legend()
 
-    # Display the plot
+    # Display the plot after generating
     plt.show()
 
-# Calling function to generate the Line Plot
-PathToFile = r'C:\Users\Avinash Reddy\Videos\ADS1Assgn\reduceddata.csv'
-Create_LinePlot(PathToFile)
+
+# Calling the function to generate the Line Plot
+path_to_file = r'C:\Users\batta\OneDrive\Desktop\ads1\assignments1\InfantMortalityRates.csv'
+create_line_plot(path_to_file)
