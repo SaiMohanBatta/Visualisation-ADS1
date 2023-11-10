@@ -1,10 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-# Function to generate a bar chart
-# by reading the CSV file
 def create_bar_chart(path_to_file):
+    """
+    Generate a bar chart to visualize access to electricity data over multiple years.
+
+    Parameters:
+    - path_to_file (str): The file path to the CSV file containing the data.
+
+    Returns:
+    returns no values but the bar graph will be generated
+    """
     # Load the dataset from the CSV file
     data = pd.read_csv(path_to_file)
 
