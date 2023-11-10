@@ -1,10 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-# Function to generate a line plot with multiple lines
-# By reading the data from a CSV file
 def create_line_plot(path_to_file):
+    """
+    Generate a line plot with multiple lines based on data from a CSV file.
+
+    Parameters:
+    - path_to_file (str): The file path to the CSV file containing the data.
+
+    Returns:
+    returns a line plot
+
     # Load the dataset from the CSV file
     data = pd.read_csv(path_to_file)
 
@@ -17,8 +23,8 @@ def create_line_plot(path_to_file):
     # Create a line plot with multiple lines based on the number of countries
     plt.figure(figsize=(10, 6))
     for idx in range(len(country_codes)):
-	# The data of years starts from column 3.
-        plt.plot(years, data.iloc[idx, 2:], label=country_codes[idx])  
+        # The data of years starts from column 3.
+        plt.plot(years, data.iloc[idx, 2:], label=country_codes[idx])
 
     # Adding plot title and axis labels to append to the graphs.
     plt.title('Infant Mortality Rate in Major EU Countries from 1970 to 2020')
