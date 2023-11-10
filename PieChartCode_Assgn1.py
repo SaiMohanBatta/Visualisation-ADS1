@@ -1,10 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-# Function to generate a Pie chart 
-# By reading the CSV file
 def create_pie_chart(path_to_file):
+    """
+    Generate a pie chart to visualize the distribution of energy provided by major food groups.
+
+    Parameters:
+    - path_to_file (str): The file path to the CSV file containing the data.
+
+    Returns:
+    returns no values but pie chart will be generated
+    """
     # Load the dataset from the CSV file
     data = pd.read_csv(path_to_file)
 
