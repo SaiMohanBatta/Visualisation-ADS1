@@ -9,8 +9,8 @@ def create_line_plot(path_to_file):
     - path_to_file (str): The file path to the CSV file containing the data.
 
     Returns:
-    returns a line plot
-
+    returns no values but the line plot will be generated.
+    """
     # Load the dataset from the CSV file
     data = pd.read_csv(path_to_file)
 
